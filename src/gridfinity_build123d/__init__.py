@@ -17,7 +17,6 @@ __all__ = [
     "CompartmentsEqual",
     "Direction",
     "FeatureLocation",
-    "FeatureLocation",
     "GridfinityRefinedConnectionCutout",
     "GridfinityRefinedConnector",
     "GridfinityRefinedMagnetHolePressfit",

@@ -2,7 +2,7 @@
 
 python -m ruff check
 
-python -m mypy --pretty ./src ./tests
+python -m basedpyright ./src
 
 python -m ruff format --diff
 
