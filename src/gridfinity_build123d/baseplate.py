@@ -31,6 +31,7 @@ from build123d import (
     mirror,
 )
 
+from gridfinity_build123d.constants import gridfinity_standard
 from gridfinity_build123d.utils import ObjectCreate, StackProfile, Utils
 
 if TYPE_CHECKING:
@@ -81,8 +82,8 @@ class BasePlateBlockFrame(BasePlateBlock):
 
         with BuildPart() as part:
             _ = Box(
-                42,
-                42,
+                gridfinity_standard.grid.size,
+                gridfinity_standard.grid.size,
                 block.part.bounding_box().size.Z,
                 align=(Align.CENTER, Align.CENTER, Align.MIN),
             )
@@ -152,7 +153,10 @@ class BasePlateBlockSkeleton(BasePlateBlockFull):
         align: Align | tuple[Align, Align, Align] | None = None,
         mode: Mode = Mode.ADD,
     ) -> BasePartObject:
-        length = 36.3
+        # Material left between the cutout and the outside of a grid cell. Kept
+        # constant so the skeleton scales with the grid size.
+        rim = 2.85
+        length = gridfinity_standard.grid.size - 2 * rim
         nodge = 9.4
         radius = 4.25
         length_s = length / 2 - nodge
@@ -233,7 +237,7 @@ class BasePlate(BasePartObject):
                 return isclose(inner_edge.length, z_height)
 
             wires = part.edges().filter_by(Axis.Z).filter_by(edge_filter)
-            _ = fillet(wires, 4)
+            _ = fillet(wires, gridfinity_standard.grid.radius)
 
             for feature in self.features:
                 feature.apply(part)

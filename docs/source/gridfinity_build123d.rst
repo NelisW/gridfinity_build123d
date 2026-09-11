@@ -41,6 +41,14 @@ gridfinity\_build123d.features module
    :undoc-members:
    :show-inheritance:
 
+gridfinity\_build123d.settings module
+-------------------------------------
+
+.. automodule:: gridfinity_build123d.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 gridfinity\_build123d.utils module
 ----------------------------------
 

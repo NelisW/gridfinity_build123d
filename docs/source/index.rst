@@ -27,6 +27,25 @@ Most Gridfinity tools out there have the posibility to create rectangular object
 Gridfinity_build123d give power users the ability to use a grid definition and create all imaginable shapes.
 
 
+Grid size
+=========
+The grid size, or pitch, is the length of one grid cell. It defaults to 42 mm,
+the Gridfinity standard, and is a single global parameter you set once at the top
+of a script:
+
+.. code-block:: python
+
+   from gridfinity_build123d import set_grid_size, BasePlateEqual
+
+   set_grid_size(61)
+
+   plate = BasePlateEqual(size_x=4, size_y=7)  # 244 x 427 mm
+
+Bases, bins, compartments and baseplates all follow the new pitch, while the
+interlocking profile does not scale, so parts built at the same pitch always fit
+together. See :doc:`grid_size` for what does and does not scale, and for how to
+choose a pitch that fills a drawer.
+
 Index
 =====
 .. toctree::
@@ -35,6 +54,8 @@ Index
 
    objects.rst
    features.rst
+   grid_size.rst
+   examples.rst
    reference.rst
 
 

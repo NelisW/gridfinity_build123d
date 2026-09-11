@@ -37,6 +37,8 @@ __all__ = [
     "TopMiddle",
     "Utils",
     "Weighted",
+    "get_grid_size",
+    "set_grid_size",
 ]
 
 from .base import Base, BaseEqual
@@ -74,4 +76,5 @@ from .features import (
     ScrewHoleCountersink,
     Weighted,
 )
+from .settings import get_grid_size, set_grid_size
 from .utils import Direction, Utils
